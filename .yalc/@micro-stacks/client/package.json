@@ -28,7 +28,7 @@
   },
   "sideEffects": false,
   "scripts": {
-    "build": "shx rm -rf ./dist && tsup-node src/index.ts --format esm,cjs --dts --minify --splitting --treeshake --external micro-stacks",
+    "build": "shx rm -rf ./dist && tsup",
     "typecheck": "tsc --noEmit --target esnext",
     "dev:publish": "yalc publish --push",
     "lint": "pnpm lint:eslint && pnpm lint:prettier",
@@ -58,8 +58,7 @@
   },
   "homepage": "https://github.com/fungible-systems/micro-stacks-monorepo",
   "dependencies": {
-    "micro-stacks": ">=0.6.1",
-    "zustand": "4.0.0-rc.1"
+    "micro-stacks": ">=0.6.1"
   },
-  "yalcSig": "284ca311b055726c4122cb454c8609e4"
+  "yalcSig": "44b81233e8516582fe130faf22c72039"
 }
