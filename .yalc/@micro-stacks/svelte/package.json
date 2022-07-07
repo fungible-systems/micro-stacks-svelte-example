@@ -1,0 +1,60 @@
+{
+  "name": "@micro-stacks/svelte",
+  "version": "1.2.3",
+  "description": "Opinionated svelte integration for micro-stacks.",
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "import": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "main": "./dist/index.cjs",
+      "module": "./dist/index.js",
+      "import": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "require": "./dist/*.cjs",
+      "main": "./dist/*.cjs",
+      "module": "./dist/*.js",
+      "import": "./dist/*.js"
+    }
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "shx rm -rf ./dist && tsup-node src/index.ts --format esm,cjs --dts --minify --splitting --treeshake",
+    "dev": "tsup-node src/index.ts --format esm,cjs --dts --splitting --treeshake --watch",
+    "typecheck": "tsc --noEmit --target esnext",
+    "dev:publish": "yalc publish --push",
+    "lint": "pnpm lint:eslint && pnpm lint:prettier",
+    "lint:eslint": "eslint \"src/**/*.{ts,tsx,svelte}\"",
+    "lint:fix": "eslint \"src/**/*.{ts,tsx,svelte}\" --fix",
+    "lint:prettier": "prettier --check \"src/**/*.{ts,tsx,svelte}\" *.js",
+    "lint:prettier:fix": "prettier --write \"src/**/*.{ts,tsx,svelte}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fungible-systems/micro-stacks-monorepo.git"
+  },
+  "keywords": [
+    "stacks",
+    "web3",
+    "small-bundle"
+  ],
+  "author": "Mohammad Bagher Abiat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fungible-systems/micro-stacks-monorepo/issues"
+  },
+  "homepage": "https://github.com/fungible-systems/micro-stacks-monorepo",
+  "dependencies": {
+    "@micro-stacks/client": "*",
+    "micro-stacks": "*"
+  },
+  "yalcSig": "6c054043ec33993d7ffdb0c78c46920d"
+}
