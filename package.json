@@ -20,8 +20,8 @@
     "vite": "^2.9.9"
   },
   "dependencies": {
-    "@micro-stacks/client": "file:.yalc/@micro-stacks/client",
-    "@micro-stacks/svelte": "file:.yalc/@micro-stacks/svelte",
-    "micro-stacks": "^0.6.1"
+    "@micro-stacks/client": "1.0.0-beta.8",
+    "@micro-stacks/svelte": "1.0.0-beta.1",
+    "micro-stacks": "0.6.1"
   }
 }

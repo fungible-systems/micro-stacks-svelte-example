@@ -1,61 +1,20 @@
 <script lang="ts">
-  import {
-    mountClient,
-    getAuth,
-    getOpenSignMessage,
-watchStxAddress,
-  } from "@micro-stacks/svelte";
 
-  mountClient({
-    appName: "New Remix App",
-    appIconUrl: "https://remix.run/remix-v1.jpg",
-  });
+    import {mountClient} from "@micro-stacks/svelte";
 
-  const auth = getAuth();
-  const openSignMessageValue = getOpenSignMessage();
+    import WalletConnectButton from './components/wallet-connect-button.svelte'
 
-  let message = "";
-  let response: any;
-  $: label = $auth.isRequestPending
-    ? "Loading..."
-    : $auth.isSignedIn
-    ? "Sign out"
-    : "Connect Stacks wallet";
-
-  function onClick() {
-    if ($auth.isSignedIn) {
-      $auth.signOut();
-    } else {
-      $auth.authenticate();
-    }
-  }
-
-  function onSignMessage() {
-    $openSignMessageValue.openSignMessage({
-      message,
-      onFinish: (value) => (response = value),
-    });
-  }
-  const stxAddress = watchStxAddress();
-
-  $: sessionStatus = !$stxAddress ? 'No active session' : $stxAddress
-
+    mountClient({
+        appName: 'svelte',
+        appIconUrl: '/'
+    })
 </script>
 
+
 <main>
-  <h2>{sessionStatus}</h2>
-  <button on:click={onClick}>
-    {label}
-  </button>
-
-  {#if response}
-    <pre>
-        <code>{JSON.stringify(response, null, 2)}</code>
-      </pre>
-  {/if}
-
-  <input bind:value={message} placeholder="Enter a message to sign!" />
-  <button on:click={onSignMessage}> Sign message </button>
+    <div> hello</div>
+    <WalletConnectButton/>
 </main>
 
-<style></style>
+
+
